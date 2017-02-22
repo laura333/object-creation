@@ -22,13 +22,17 @@ Logging "moreLanguages" should print:
 */
 
 let languages = {
-  Celtic: ["Welsh", "Irish", "Breton"],
-  AfroAsiatic: ["Hebrew", "Somali", "Oromo"]
+    Celtic: ["Welsh", "Irish", "Breton"],
+    AfroAsiatic: ["Hebrew", "Somali", "Oromo"]
 };
 
 //Write task #1 code below
+let moreLanguages = Object.assign(languages, {
+    isolates: ['Korean', 'Basque'],
+    Germanic: ['Swedish', 'Danish', 'English']
+});
 
-
+console.log(moreLanguages);
 
 
 /*
@@ -39,27 +43,27 @@ Task #2
 
 // Dog - superclass
 function Dog() {
-  this.hungry = true;
+    this.hungry = true;
 }
 
 // superclass method
 Dog.prototype.eat = function() {
-  this.hungry = false;
+    this.hungry = false;
 };
 
 Dog.prototype.run = function() {
-  this.hungry = true;
+    this.hungry = true;
 };
 
 // Husky - subclass
 function Husky() {
-  Dog.call(this); // call super constructor.
+    Dog.call(this); // call super constructor.
 }
 
 // TODO: Use Object.create() in order to extend the superclass with the subclass
 //write code here
-
+Husky.prototype = Object.create(Dog.prototype);
 var fido = new Husky();
 
-console.log('Is fido an instance of Husky?', fido instanceof Husky);// should print true
-console.log('Is fido an instance of Dog?', fido instanceof Dog);// should print true
+console.log('Is fido an instance of Husky?', fido instanceof Husky); // should print true
+console.log('Is fido an instance of Dog?', fido instanceof Dog); // should print true
